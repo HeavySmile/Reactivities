@@ -12,7 +12,7 @@ export default function ActivityDetails({activity, cancelSelectActivity, openFor
         <Card fluid>
             <Image src={`/assets/categoryImages/${activity.category}.jpg`} />
             <CardContent>
-                <CardHeader>Matthew</CardHeader>
+                <CardHeader>{activity.title}</CardHeader>
                 <CardMeta>
                     <span className='date'>{activity.date}</span>
                 </CardMeta>
