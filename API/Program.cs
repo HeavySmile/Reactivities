@@ -1,4 +1,6 @@
 using Application;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
 
@@ -20,6 +22,9 @@ builder.Services.AddCors(opt =>
     });
 });
 builder.Services.AddMediatR(config => config.RegisterServicesFromAssembly(typeof(List.Handler).Assembly));
+builder.Services.AddFluentValidationAutoValidation();
+builder.Services.AddValidatorsFromAssemblyContaining<Create>();
+builder.Services.AddAutoMapper(typeof(MappingPatterns).Assembly);
 
 var app = builder.Build();
 
